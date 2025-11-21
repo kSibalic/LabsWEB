@@ -43,6 +43,22 @@
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">{{ $project->opis }}</textarea>
                             </div>
 
+                            <div>
+                                <label for="cijena" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Cijena projekta (€)
+                                </label>
+                                <input
+                                    type="number"
+                                    step="1"
+                                    min="0"
+                                    name="cijena"
+                                    id="cijena"
+                                    value="{{ $project->cijena }}"
+                                    placeholder="0.00"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                >
+                            </div>
+
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label for="datum_pocetka" class="block text-sm font-medium text-gray-700 mb-2">
@@ -128,6 +144,13 @@
                                 <h3 class="text-sm font-semibold text-gray-600 mb-1">Opis projekta</h3>
                                 <p class="text-gray-800">{{ $project->opis ?? 'Nema opisa' }}</p>
                             </div>
+
+                            @if($project->cijena)
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-600 mb-1">Cijena projekta</h3>
+                                    <p class="text-gray-800 text-lg font-semibold text-green-600">{{ number_format($project->cijena, 2) }} €</p>
+                                </div>
+                            @endif
 
                             @if($project->datum_pocetka || $project->datum_zavrsetka)
                                 <div class="grid grid-cols-2 gap-4">

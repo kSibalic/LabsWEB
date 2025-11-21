@@ -28,7 +28,7 @@ class ProjectController extends Controller
         $data = $request->validate([
             'naziv' => 'required',
             'opis' => 'nullable',
-            'cijena' => 'nullable|numeric',
+            'cijena' => 'nullable|numeric|min:0',
             'datum_pocetka' => 'nullable|date',
             'datum_zavrsetka' => 'nullable|date'
         ]);
@@ -65,6 +65,7 @@ class ProjectController extends Controller
             $data = $request->validate([
                 'naziv' => 'required',
                 'opis' => 'nullable',
+                'cijena' => 'nullable|numeric|min:0',
                 'obavljeni_poslovi' => 'nullable',
                 'datum_pocetka' => 'nullable|date',
                 'datum_zavrsetka' => 'nullable|date',

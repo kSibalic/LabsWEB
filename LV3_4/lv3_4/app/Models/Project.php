@@ -16,6 +16,12 @@ class Project extends Model
         'datum_zavrsetka',
     ];
 
+    protected $casts = [
+        'datum_pocetka' => 'date',
+        'datum_zavrsetka' => 'date',
+        'cijena' => 'decimal:2',
+    ];
+
     public function voditelj()
     {
         return $this->belongsTo(User::class, 'user_id');
