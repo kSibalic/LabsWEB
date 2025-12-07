@@ -1,0 +1,19 @@
+.div.form-group
+  label(for="title") Naziv
+  input.form-control(type="text", name="title", id="title", required, value=project.title || '')
+.div.form-group
+  label(for="description") Opis
+  textarea.form-control(name="description", rows="4")= project.description || ''
+.div.form-row
+  .form-group.col-md-3
+    label(for="price") Cijena
+    input.form-control(type="number", step="0.01", name="price", id="price", value=(project.price != null ? project.price : ''))
+  .form-group.col-md-3
+    label(for="completedTasks") Obavljeni poslovi
+    input.form-control(type="number", name="completedTasks", value=(project.completedTasks != null ? project.completedTasks : 0))
+  .form-group.col-md-3
+    label(for="startDate") Datum početka
+    input.form-control(type="date", name="startDate", value= project.startDate ? project.startDate.toISOString().substr(0,10) : '')
+  .form-group.col-md-3
+    label(for="endDate") Datum završetka
+    input.form-control(type="date", name="endDate", value= project.endDate ? project.endDate.toISOString().substr(0,10) : '')
